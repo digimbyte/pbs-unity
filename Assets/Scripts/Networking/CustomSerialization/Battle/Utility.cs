@@ -10,15 +10,15 @@ namespace PBS.Networking.CustomSerialization.Battle
 
         public static void WriteBattleUtilityPosition(this NetworkWriter writer, BattlePosition obj)
         {
-            writer.WriteInt32(obj.battlePos);
-            writer.WriteInt32(obj.teamPos);
+            writer.WriteInt(obj.battlePos);
+            writer.WriteInt(obj.teamPos);
         }
         public static BattlePosition ReadBattleUtilityPosition(this NetworkReader reader)
         {
             return new BattlePosition
             (
-                battlePos: reader.ReadInt32(),
-                teamPos: reader.ReadInt32()
+                battlePos: reader.ReadInt(),
+                teamPos: reader.ReadInt()
             );
         }
     

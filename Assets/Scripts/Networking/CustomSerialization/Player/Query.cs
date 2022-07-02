@@ -16,18 +16,18 @@ namespace PBS.Networking.CustomSerialization.Player
         {
             if (obj is PBS.Player.Query.MoveTarget moveTarget)
             {
-                writer.WriteInt32(MOVETARGET);
+                writer.WriteInt(MOVETARGET);
                 writer.WriteString(moveTarget.pokemonUniqueID);
                 writer.WriteString(moveTarget.moveID);
             }
             else
             {
-                writer.WriteInt32(BASE);
+                writer.WriteInt(BASE);
             }
         }
         public static PBS.Player.Query.QueryBase ReadBattleViewEvent(this NetworkReader reader)
         {
-            int type = reader.ReadInt32();
+            int type = reader.ReadInt();
             switch (type)
             {
                 case MOVETARGET:
@@ -47,17 +47,17 @@ namespace PBS.Networking.CustomSerialization.Player
         {
             if (obj is PBS.Player.Query.MoveTargetResponse moveTarget)
             {
-                writer.WriteInt32(MOVETARGET);
+                writer.WriteInt(MOVETARGET);
                 writer.WriteList(moveTarget.possibleTargets);
             }
             else
             {
-                writer.WriteInt32(BASE);
+                writer.WriteInt(BASE);
             }
         }
         public static PBS.Player.Query.QueryResponseBase ReadPlayerQueryResponse(this NetworkReader reader)
         {
-            int type = reader.ReadInt32();
+            int type = reader.ReadInt();
             switch (type)
             {
                 case MOVETARGET:

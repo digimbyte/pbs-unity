@@ -89,6 +89,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -98,11 +100,11 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -120,9 +122,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -624,6 +629,29 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      BW2 Battle UI - Pikachumazzinga_14: -5356340831969333305
+      BW2 Battle UI - Pikachumazzinga_20: 6726208903599157191
+      B2_PokemonHUDFar: -8657103725666643737
+      BW2 Battle UI - Pikachumazzinga_4: 3892489367837582592
+      B2_PokemonHUDNear: 1395063403413302071
+      BW2 Battle UI - Pikachumazzinga_18: -4949289274052330101
+      BW2 Battle UI - Pikachumazzinga_5: -8076336689405503689
+      W2_PokemonHUDNear: -7746752941258396622
+      BW2_PokemonHUDGenderM: 2697770910246578024
+      W2_PokemonHUDFar: 8286714368369558314
+      BW2 Battle UI - Pikachumazzinga_13: 808623480552144829
+      BW2 Battle UI - Pikachumazzinga_12: 4694913101941296012
+      BW2 Battle UI - Pikachumazzinga_1: 5149136033808794481
+      BW2_PokemonHUDLevel: -7878765127704303657
+      BW2 Battle UI - Pikachumazzinga_11: 1108943534364993281
+      BW2_PokemonHUDGenderF: 6554467978227383239
+      BW2 Battle UI - Pikachumazzinga_17: -3949984207505788682
+      BW2 Battle UI - Pikachumazzinga_19: 2989969150210331220
+      BW2 Battle UI - Pikachumazzinga_10: 5423889344691672464
+      BW2_PokemonHUDHPGreen: 4845712990031622856
+      BW2 Battle UI - Pikachumazzinga_15: 5968687300744397016
+      BW2_PokemonHUDAbility: -1969870635901073806
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

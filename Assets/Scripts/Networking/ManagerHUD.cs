@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using System;
 
 namespace PBS.Networking
 {
     public class ManagerHUD : NetworkManagerHUD
     {
         Networking.Manager networkManager;
+		private bool showGUI;
 
-        void Awake()
+		void Awake()
         {
             networkManager = GetComponent<Networking.Manager>();
         }
@@ -30,7 +32,7 @@ namespace PBS.Networking
             }
 
             // client ready
-            if (NetworkClient.isConnected && !ClientScene.ready)
+            if (NetworkClient.isConnected && !ClientScene.isReady)
             {
                 if (GUILayout.Button("Client Ready"))
                 {
@@ -133,5 +135,21 @@ namespace PBS.Networking
             }
         }
     }
+
+	internal class ClientScene
+	{
+		internal static bool isReady;
+		internal static object localPlayer;
+
+		internal static void AddPlayer(NetworkConnection connection)
+		{
+			throw new NotImplementedException();
+		}
+
+		internal static void Ready(NetworkConnection connection)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }
 

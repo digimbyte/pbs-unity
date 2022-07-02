@@ -48,19 +48,9 @@ namespace PBS.Networking
             trainerConnections = new Dictionary<int, Trainer>();
         }
 
-        // 2.
-        public override void OnServerAddPlayer(NetworkConnection conn)
-        {
-            // Associate player with new connection
-            GameObject player = Instantiate(playerPrefab);
-            NetworkServer.AddPlayerForConnection(conn, player);
+		// TODO: OnServerDisconnect
 
-            Debug.Log("A player is joining the server.");
-        }
-
-        // TODO: OnServerDisconnect
-
-        public void AddPlayer(NetworkConnection conn, PBS.Networking.Player player)
+		public void AddPlayer(NetworkConnection conn, PBS.Networking.Player player)
         {
             playerConnections.Add(conn.connectionId + 1, player);
         }

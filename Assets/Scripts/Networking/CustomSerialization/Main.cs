@@ -15,15 +15,15 @@ namespace PBS.Networking.CustomSerialization
             writer.WriteString(obj.uniqueID);
             writer.WriteString(obj.pokemonID);
             writer.WriteString(obj.nickname);
-            writer.WriteInt32(obj.teamPos);
-            writer.WriteInt32(obj.battlePos);
-            writer.WriteInt32(obj.currentHP);
-            writer.WriteInt32(obj.maxHP);
-            writer.WriteBoolean(obj.isFainted);
-            writer.WriteInt32(obj.level);
-            writer.WriteInt32((int)obj.gender);
+            writer.WriteInt(obj.teamPos);
+            writer.WriteInt(obj.battlePos);
+            writer.WriteInt(obj.currentHP);
+            writer.WriteInt(obj.maxHP);
+            writer.WriteBool(obj.isFainted);
+            writer.WriteInt(obj.level);
+            writer.WriteInt((int)obj.gender);
             writer.WriteString(obj.nonVolatileStatus);
-            writer.WriteInt32((int)obj.dynamaxState);
+            writer.WriteInt((int)obj.dynamaxState);
         }
         public static PBS.Battle.View.WifiFriendly.Pokemon ReadBattleViewCompactPokemon(this NetworkReader reader)
         {
@@ -32,15 +32,15 @@ namespace PBS.Networking.CustomSerialization
                 uniqueID = reader.ReadString(),
                 pokemonID = reader.ReadString(),
                 nickname = reader.ReadString(),
-                teamPos = reader.ReadInt32(),
-                battlePos = reader.ReadInt32(),
-                currentHP = reader.ReadInt32(),
-                maxHP = reader.ReadInt32(),
-                isFainted = reader.ReadBoolean(),
-                level = reader.ReadInt32(),
-                gender = (PokemonGender)reader.ReadInt32(),
+                teamPos = reader.ReadInt(),
+                battlePos = reader.ReadInt(),
+                currentHP = reader.ReadInt(),
+                maxHP = reader.ReadInt(),
+                isFainted = reader.ReadBool(),
+                level = reader.ReadInt(),
+                gender = (PokemonGender)reader.ReadInt(),
                 nonVolatileStatus = reader.ReadString(),
-                dynamaxState = (Pokemon.DynamaxState)reader.ReadInt32()
+                dynamaxState = (Pokemon.DynamaxState)reader.ReadInt()
             };
         }
 
@@ -49,8 +49,8 @@ namespace PBS.Networking.CustomSerialization
         public static void WriteBattleViewCompactTrainer(this NetworkWriter writer, PBS.Battle.View.WifiFriendly.Trainer obj)
         {
             writer.WriteString(obj.name);
-            writer.WriteInt32(obj.playerID);
-            writer.WriteInt32(obj.teamPos);
+            writer.WriteInt(obj.playerID);
+            writer.WriteInt(obj.teamPos);
             writer.WriteList(obj.party);
             writer.WriteList(obj.items);
             writer.WriteList(obj.controlPos);
@@ -60,8 +60,8 @@ namespace PBS.Networking.CustomSerialization
             return new PBS.Battle.View.WifiFriendly.Trainer
             {
                 name = reader.ReadString(),
-                playerID = reader.ReadInt32(),
-                teamPos = reader.ReadInt32(),
+                playerID = reader.ReadInt(),
+                teamPos = reader.ReadInt(),
                 party = reader.ReadList<PBS.Battle.View.WifiFriendly.Pokemon>(),
                 items = reader.ReadList<string>(),
                 controlPos = reader.ReadList<int>()
@@ -73,29 +73,29 @@ namespace PBS.Networking.CustomSerialization
         public static void WriteItem(this NetworkWriter writer, Item item)
         {
             writer.WriteString(item.itemID);
-            writer.WriteBoolean(item.useable);
+            writer.WriteBool(item.useable);
         }
         public static Item ReadItem(this NetworkReader reader)
         {
             return new Item(
                 reader.ReadString(),
-                reader.ReadBoolean());
+                reader.ReadBool());
         }
 
 
         // Battle Team
         public static void WriteBattleViewCompactTeam(this NetworkWriter writer, PBS.Battle.View.WifiFriendly.Team obj)
         {
-            writer.WriteInt32(obj.teamID);
-            writer.WriteInt32((int)obj.teamMode);
+            writer.WriteInt(obj.teamID);
+            writer.WriteInt((int)obj.teamMode);
             writer.WriteList(obj.trainers);
         }
         public static PBS.Battle.View.WifiFriendly.Team ReadBattleViewCompactTeam(this NetworkReader reader)
         {
             return new PBS.Battle.View.WifiFriendly.Team
             {
-                teamID = reader.ReadInt32(),
-                teamMode = (TeamMode)reader.ReadInt32(),
+                teamID = reader.ReadInt(),
+                teamMode = (TeamMode)reader.ReadInt(),
                 trainers = reader.ReadList<PBS.Battle.View.WifiFriendly.Trainer>()
             };
         }
@@ -104,22 +104,22 @@ namespace PBS.Networking.CustomSerialization
         // Battle
         public static void WriteBattleSettings(this NetworkWriter writer, BattleSettings obj)
         {
-            writer.WriteInt32((int)obj.battleType);
-            writer.WriteBoolean(obj.isWildBattle);
-            writer.WriteBoolean(obj.isInverse);
-            writer.WriteBoolean(obj.canMegaEvolve);
-            writer.WriteBoolean(obj.canZMove);
-            writer.WriteBoolean(obj.canDynamax);
+            writer.WriteInt((int)obj.battleType);
+            writer.WriteBool(obj.isWildBattle);
+            writer.WriteBool(obj.isInverse);
+            writer.WriteBool(obj.canMegaEvolve);
+            writer.WriteBool(obj.canZMove);
+            writer.WriteBool(obj.canDynamax);
         }
         public static BattleSettings ReadBattleSettings(this NetworkReader reader)
         {
             return new BattleSettings(
-                battleType: (BattleType)reader.ReadInt32(),
-                isWildBattle: reader.ReadBoolean(),
-                isInverse: reader.ReadBoolean(),
-                canMegaEvolve: reader.ReadBoolean(),
-                canZMove: reader.ReadBoolean(),
-                canDynamax: reader.ReadBoolean()
+                battleType: (BattleType)reader.ReadInt(),
+                isWildBattle: reader.ReadBool(),
+                isInverse: reader.ReadBool(),
+                canMegaEvolve: reader.ReadBool(),
+                canZMove: reader.ReadBool(),
+                canDynamax: reader.ReadBool()
                 );
         }
     }
